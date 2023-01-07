@@ -13,20 +13,20 @@ const prompt = promptSync()
 function binarySearch(
   userArray: number[],
   userNumber: number,
-  lowIndex: number,
-  highIndex: number
+  low: number,
+  high: number
 ): number {
-  if (lowIndex > highIndex) {
+  if (low > high) {
     return -1
   }
-  const middle = Math.floor((lowIndex + highIndex) / 2)
+  const middle = Math.floor((low + high) / 2)
   if (userArray[middle] === userNumber) {
     return middle
   }
   if (userArray[middle] > userNumber) {
-    return binarySearch(userArray, userNumber, lowIndex, middle - 1)
+    return binarySearch(userArray, userNumber, low, middle - 1)
   } else {
-    return binarySearch(userArray, userNumber, middle + 1, highIndex)
+    return binarySearch(userArray, userNumber, middle + 1, high)
   }
 }
 
